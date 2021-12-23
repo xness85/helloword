@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img src="img/2.jpg" @click="show()" style="width: 300px;height: 300px;" title="请点击生肖">
+		</div>
+		<script type="text/javascript">
+			let v=new Vue({
+				el:"#app",
+				data:{
+					flag:0,
+					clickX:0,
+					clickY:0
+				},
+				methods:{
+					show(){
+						
+						console.log(event.clientX+","+event.clientY);
+						console.log(v.flag);
+						v.clickX=event.clientX;
+						v.clickY=event.clientY;
+						if(v.flag==0 && v.clickX>19&&v.clickX<69&&v.clickY>30&&v.clickY<88){
+							console.log("第一次点击正确");
+							  // alert("恭喜，鼠验证成功~！");
+							v.flag=1;//点击次数=1；
+							
+						}
+						
+						if(v.flag==1&&v.clickX>56&&v.clickX<98&&v.clickY>115&&v.clickY<165){
+							console.log("第二次点击正确");
+							v.flag=2;
+							console.log(v.flag);
+							   // alert("恭喜，牛验证成功~！");
+						}
+						
+						//老虎minXY(161,29),maxXY(203,102)
+						if(v.flag==2&&v.clickX>12&&v.clickX<53&&v.clickY>166&&v.clickY<225){
+							console.log("第三次点击正确");
+							v.flag=3;
+							console.log(v.flag);
+							 // alert("恭喜，虎验证成功~！");
+						}
+						
+						if(v.flag==3&&v.clickX>51&&v.clickX<106&&v.clickY>235&&v.clickY<292){
+							console.log("第四次点击正确");
+							v.flag=4;
+							console.log(v.flag);
+							  // alert("恭喜，兔验证成功~！");
+						}
+						
+						if(v.flag==4&&v.clickX>112&&v.clickX<162&&v.clickY>29&&v.clickY<64){
+							console.log("第五次点击正确");
+							v.flag=5;
+							console.log(v.flag);
+							alert("恭喜，鼠、牛、虎、兔、龙生肖全部验证成功~！");}
+						
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
